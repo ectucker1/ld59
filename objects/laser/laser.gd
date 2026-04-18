@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 func _area_entered(area: Area2D):
 	if area is Laser and area.color != color:
 		received()
+		GlobalSounds.play("Fizzle")
 
 func received():
 	set_deferred("monitorable", false)

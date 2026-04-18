@@ -31,3 +31,4 @@ func explode():
 			var luminance = grid.get_luminance(Grid.GridMaterial.AIR)
 			grid.editable_image.set_pixelv(Vector2i(x, y), Color(luminance, luminance, luminance))
 	grid.update_image()
+	GlobalSounds.play("Bomb")

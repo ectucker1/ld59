@@ -13,3 +13,12 @@ func play(sound: NodePath) -> void:
 	var stream = get_node(sound)
 	if AudioStreamCollection.is_stream(stream):
 		stream.play()
+
+func play_if_not(sound: NodePath) -> void:
+	if pause_triggers:
+		return
+	
+	var stream = get_node(sound)
+	if AudioStreamCollection.is_stream(stream):
+		if not stream.playing:
+			stream.play()

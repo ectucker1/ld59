@@ -14,3 +14,4 @@ func _area_entered(area: Area2D) -> void:
 		area.received()
 		received = true
 		GlobalEvents.signal_received.emit()
+		GlobalSounds.play("Receive")
