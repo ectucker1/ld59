@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dxqgq2cuxvf5h"]
+
+[ext_resource type="PackedScene" uid="uid://ctcqty5xh5t3p" path="res://objects/grid/grid.tscn" id="1_xn6mk"]
+[ext_resource type="Texture2D" uid="uid://vqo6hgag8qu0" path="res://levels/level_6.png" id="2_xn6mk"]
+[ext_resource type="PackedScene" uid="uid://deo4qm7meeyj2" path="res://objects/emitter/emitter.tscn" id="3_v2dqh"]
+[ext_resource type="PackedScene" uid="uid://c2bhsy12ahlq0" path="res://objects/receiver/receiver.tscn" id="4_nu44e"]
+[ext_resource type="PackedScene" uid="uid://bre0uertn3qh5" path="res://objects/emitter_2/emitter_2.tscn" id="5_kx1xp"]
+[ext_resource type="PackedScene" uid="uid://cmqfb4kwadlsf" path="res://objects/bomb/bomb.tscn" id="6_m516p"]
+[ext_resource type="PackedScene" uid="uid://b0ny8lvpk7b5y" path="res://objects/receiver_2/receiver_2.tscn" id="7_l3m5x"]
+[ext_resource type="PackedScene" uid="uid://ngo278ypngcy" path="res://objects/bomb_2/bomb_2.tscn" id="8_t207q"]
+
+[node name="Level0" type="Node2D" unique_id=1701362465]
+
+[node name="Grid" parent="." unique_id=1857638412 instance=ExtResource("1_xn6mk")]
+position = Vector2(3, -9)
+texture = ExtResource("2_xn6mk")
+max_dig = 80000
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1461427490]
+position = Vector2(827.185, 540)
+zoom = Vector2(1.2, 1.2)
+
+[node name="Emitter" parent="." unique_id=763716319 instance=ExtResource("3_v2dqh")]
+position = Vector2(360, 433)
+
+[node name="Emitter3" parent="." unique_id=886110642 instance=ExtResource("3_v2dqh")]
+position = Vector2(364, 527)
+
+[node name="Emitter4" parent="." unique_id=1059493859 instance=ExtResource("3_v2dqh")]
+position = Vector2(361, 338)
+
+[node name="Receiver" parent="." unique_id=296584156 instance=ExtResource("4_nu44e")]
+position = Vector2(1298, 339)
+
+[node name="Receiver6" parent="." unique_id=1380069094 instance=ExtResource("4_nu44e")]
+position = Vector2(1299, 437)
+
+[node name="Receiver7" parent="." unique_id=1755731004 instance=ExtResource("4_nu44e")]
+position = Vector2(1305, 530)
+
+[node name="Emitter2" parent="." unique_id=1427828556 instance=ExtResource("5_kx1xp")]
+position = Vector2(487, 746)
+
+[node name="Bomb2" parent="." unique_id=746230097 instance=ExtResource("6_m516p")]
+position = Vector2(1477, 428)
+
+[node name="Receiver5" parent="." unique_id=492012044 instance=ExtResource("7_l3m5x")]
+position = Vector2(1320, 748)
+
+[node name="Receiver3" parent="." unique_id=474701259 instance=ExtResource("7_l3m5x")]
+position = Vector2(1124, 274)
+
+[node name="Bomb" parent="." unique_id=496661616 instance=ExtResource("8_t207q")]
+position = Vector2(909, 551)
+
+[node name="Bomb3" parent="." unique_id=628043072 instance=ExtResource("8_t207q")]
+position = Vector2(953, 432)
+
+[node name="Bomb4" parent="." unique_id=1604564128 instance=ExtResource("8_t207q")]
+position = Vector2(991, 337)
