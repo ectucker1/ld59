@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ngo278ypngcy"]
+
+[ext_resource type="Script" uid="uid://baxltymd1b7fl" path="res://objects/bomb/bomb.gd" id="1_1tswo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jawcn"]
+radius = 24.083189
+
+[node name="Bomb" type="Area2D" unique_id=496661616]
+script = ExtResource("1_1tswo")
+color = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=939884366]
+color = Color(0.9368247, 0.29986525, 0.37131974, 1)
+polygon = PackedVector2Array(-16, -4, -1, 23, 27, 13, 17, -8, 3, -15, 4, -32, 14, -36, 6, -46, -5, -37, -5, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1569719974]
+shape = SubResource("CircleShape2D_jawcn")

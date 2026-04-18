@@ -4,11 +4,14 @@ var radius = 80
 
 var received := false
 
+@export
+var color = 1
+
 func _ready() -> void:
 	area_entered.connect(_area_entered)
 
 func _area_entered(area: Area2D) -> void:
-	if area is Laser:
+	if area is Laser and area.color == color:
 		area.received()
 		received = true
 		set_deferred("monitorable", false)

@@ -3,6 +3,12 @@ extends Node2D
 @onready
 var laser: PackedScene = load("res://objects/laser/laser.tscn")
 
+@onready
+var laser_2: PackedScene = load("res://objects/laser_2/laser_2.tscn")
+
+@export
+var color = 1
+
 func _ready() -> void:
 	GlobalEvents.emit_pressed.connect(emit)
 
@@ -18,9 +24,15 @@ func emit():
 	
 func spawn_laser(direction: Vector2):
 	direction = direction.normalized()
-	var spawn: Node2D = laser.instantiate()
+	var spawn: Node2D
+	match color:
+		1:
+			spawn = laser.instantiate()
+		2:
+			spawn = laser_2.instantiate()
 	spawn.global_position = global_position + direction * 50.0
 	spawn.rotation = direction.angle()
 	spawn.direction = direction
+	spawn.color = color
 	get_parent().add_child(spawn)
 	
