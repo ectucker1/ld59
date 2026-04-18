@@ -19,12 +19,16 @@ var HARD_STONE_LUMINANCE = HARD_STONE_COLOR.get_luminance()
 
 enum GridMaterial { AIR, DIRT, HARD_DIRT, STONE, HARD_STONE }
 
+var draw_disabled = false
+
 func _ready() -> void:
 	editable_image = texture.get_image()
 	editable_image.convert(Image.FORMAT_L8)
 	editable_texture = ImageTexture.create_from_image(editable_image)
 	texture = editable_texture
 	add_to_group("Grids")
+	GlobalEvents.level_advance.connect(func(): draw_disabled = false)
+	GlobalEvents.level_complete.connect(func(): draw_disabled = true)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -36,9 +40,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Dig at the global mouse position
 func draw_dig():
-	var position = InputUtil.get_global_mouse_position(self)
-	dig_circle(position, 20)
-	editable_texture.update(editable_image)
+	if not draw_disabled:
+		var position = InputUtil.get_global_mouse_position(self)
+		dig_circle(position, 20)
+		editable_texture.update(editable_image)
 
 # Get the luminance for the given GridMaterial
 func get_luminance(material: GridMaterial) -> float:
