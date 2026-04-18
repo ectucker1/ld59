@@ -1,7 +1,7 @@
 class_name Laser
 extends Area2D
 
-var speed := 50.0
+var speed := 200.0
 
 var direction: Vector2
 
