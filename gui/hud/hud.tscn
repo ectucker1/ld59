@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://3u8rnfw5pvy1"]
+
+[ext_resource type="Script" uid="uid://bqqkucofpoteo" path="res://gui/hud/emit_button.gd" id="1_4w87a"]
+[ext_resource type="Script" uid="uid://bdf8tqxjgevwm" path="res://gui/hud/reset_button.gd" id="2_rllpj"]
+[ext_resource type="Script" uid="uid://xqm2j7eid4hp" path="res://gui/hud/next_level_button.gd" id="3_rllpj"]
+[ext_resource type="Script" uid="uid://4y7b3wq0n8ob" path="res://gui/hud/win_check_dialog.gd" id="3_y7mac"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1636908717]
+
+[node name="Control" type="Control" parent="." unique_id=133835144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EmitButton" type="Button" parent="Control" unique_id=1728351920]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Emit!"
+script = ExtResource("1_4w87a")
+
+[node name="ResetButton" type="Button" parent="Control" unique_id=1127724521]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -83.0
+offset_right = 160.0
+grow_vertical = 0
+text = "Reset"
+script = ExtResource("2_rllpj")
+
+[node name="NextLevel" type="Control" parent="." unique_id=649207472]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_y7mac")
+
+[node name="CenterContainer" type="CenterContainer" parent="NextLevel" unique_id=1830690041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="NextLevel/CenterContainer" unique_id=1671120418]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NextLevel/CenterContainer/PanelContainer" unique_id=2138081469]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NextLevel/CenterContainer/PanelContainer/VBoxContainer" unique_id=907709132]
+layout_mode = 2
+text = "Mission Complete!"
+
+[node name="Button" type="Button" parent="NextLevel/CenterContainer/PanelContainer/VBoxContainer" unique_id=1915055766]
+layout_mode = 2
+text = "Next Level"
+script = ExtResource("3_rllpj")

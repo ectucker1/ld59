@@ -3,9 +3,8 @@ extends Node2D
 @onready
 var laser: PackedScene = load("res://objects/laser/laser.tscn")
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("emit"):
-		emit()
+func _ready() -> void:
+	GlobalEvents.emit_pressed.connect(emit)
 
 func emit():
 	spawn_laser(Vector2.LEFT)

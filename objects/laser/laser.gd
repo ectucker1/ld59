@@ -1,5 +1,5 @@
 class_name Laser
-extends Node2D
+extends Area2D
 
 @export
 var speed := 50.0
@@ -29,3 +29,8 @@ func _physics_process(delta: float) -> void:
 		global_position = target.global_position
 		direction = direction.bounce(normal)
 		rotation = direction.angle()
+
+func received():
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	queue_free()

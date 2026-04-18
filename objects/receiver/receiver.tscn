@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2bhsy12ahlq0"]
+
+[ext_resource type="Script" uid="uid://visjhayu3a83" path="res://objects/receiver/receiver.gd" id="1_sg7po"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_584qb"]
+radius = 33.0
+
+[node name="Receiver" type="Area2D" unique_id=296584156]
+script = ExtResource("1_sg7po")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1446561657]
+color = Color(0.09803922, 0.23921569, 0.99607843, 1)
+polygon = PackedVector2Array(-22, 13, -22, -24, 24, -23, 22, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837250648]
+shape = SubResource("CircleShape2D_584qb")

@@ -26,6 +26,9 @@ UiSoundConnector="*uid://c5pshemmbfsxc"
 CameraEffects="*res://util/camera/camera_effects.gd"
 PauseMenu="*res://util/pause_menu/pause_menu.tscn"
 TransitionLayer="*res://util/transition/transition_layer.tscn"
+Hud="*uid://3u8rnfw5pvy1"
+GlobalEvents="*uid://dc75rea6dbipq"
+LevelSequence="*uid://buelh5p8cuxwq"
 
 [display]
 
