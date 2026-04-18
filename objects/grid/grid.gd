@@ -1,6 +1,9 @@
 class_name Grid
 extends Sprite2D
 
+var dig_radius = 20
+var max_dig = 300_000
+
 var editable_image: Image
 var editable_texture: ImageTexture
 
@@ -19,6 +22,7 @@ var HARD_STONE_LUMINANCE = HARD_STONE_COLOR.get_luminance()
 
 enum GridMaterial { AIR, DIRT, HARD_DIRT, STONE, HARD_STONE }
 
+var dig_meter_remaining = max_dig
 var draw_disabled = false
 
 func _ready() -> void:
@@ -29,6 +33,7 @@ func _ready() -> void:
 	add_to_group("Grids")
 	GlobalEvents.level_advance.connect(func(): draw_disabled = false)
 	GlobalEvents.level_complete.connect(func(): draw_disabled = true)
+	GlobalEvents.dig_usage.emit(dig_meter_remaining, max_dig)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -40,9 +45,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Dig at the global mouse position
 func draw_dig():
-	if not draw_disabled:
+	if not draw_disabled and dig_meter_remaining > 0:
 		var position = InputUtil.get_global_mouse_position(self)
-		dig_circle(position, 20)
+		dig_meter_remaining -= dig_circle(position, dig_radius)
+		GlobalEvents.dig_usage.emit(dig_meter_remaining, max_dig)
 		update_image()
 
 func update_image():
@@ -102,15 +108,17 @@ func get_stone_normal_local(center: Vector2i) -> Vector2:
 	return normal.normalized() if normal.length_squared() > 0.0 else Vector2.ZERO
 
 # Remove any diggable material at the given point
-func dig_at(point: Vector2i) -> bool:
+func dig_at(point: Vector2i) -> int:
 	var target_material = get_grid_material_local(point)
 	if target_material == GridMaterial.DIRT or target_material == GridMaterial.STONE:
 		var luminance = get_luminance(GridMaterial.AIR)
 		editable_image.set_pixelv(point, Color(luminance, luminance, luminance))
-	return false
+		return 1
+	return 0
 
 # Remove any diggable material at ever point in a circle with the given center and radius
-func dig_circle(global_center: Vector2, radius: int):
+func dig_circle(global_center: Vector2, radius: int) -> int:
+	var num_dug = 0
 	var int_center = to_local_int(global_center)
 	for  y in range(int_center.y - radius, int_center.y + radius + 1):
 		for x in range(int_center.x - radius, int_center.x + radius + 1):
@@ -118,4 +126,5 @@ func dig_circle(global_center: Vector2, radius: int):
 				continue
 			if Vector2i(x, y).distance_squared_to(int_center) > radius * radius:
 				continue
-			dig_at(Vector2i(x, y))
+			num_dug += dig_at(Vector2i(x, y))
+	return num_dug

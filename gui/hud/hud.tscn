@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bqqkucofpoteo" path="res://gui/hud/emit_button.gd" id="1_4w87a"]
 [ext_resource type="Script" uid="uid://bdf8tqxjgevwm" path="res://gui/hud/reset_button.gd" id="2_rllpj"]
 [ext_resource type="Script" uid="uid://xqm2j7eid4hp" path="res://gui/hud/next_level_button.gd" id="3_rllpj"]
+[ext_resource type="Script" uid="uid://bk5r4mjpk06ct" path="res://gui/hud/dig_meter.gd" id="3_uffwq"]
 [ext_resource type="Script" uid="uid://4y7b3wq0n8ob" path="res://gui/hud/win_check_dialog.gd" id="3_y7mac"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1636908717]
@@ -40,6 +41,19 @@ offset_right = 160.0
 grow_vertical = 0
 text = "Reset"
 script = ExtResource("2_rllpj")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=1379703090]
+custom_minimum_size = Vector2(60, 600)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_bottom = 71.0
+grow_horizontal = 0
+value = 50.0
+fill_mode = 3
+script = ExtResource("3_uffwq")
 
 [node name="NextLevel" type="Control" parent="." unique_id=649207472]
 visible = false
