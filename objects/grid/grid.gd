@@ -33,6 +33,15 @@ func _ready() -> void:
 	editable_image.convert(Image.FORMAT_L8)
 	editable_texture = ImageTexture.create_from_image(editable_image)
 	texture = editable_texture
+	
+	var new_material: ShaderMaterial = load("res://objects/grid/grid_material.tres")
+	new_material.set_shader_parameter("air_luminance", AIR_LUMINANCE)
+	new_material.set_shader_parameter("dirt_luminance", DIRT_LUMINANCE)
+	new_material.set_shader_parameter("hard_dirt_luminance", HARD_DIRT_LUMINANCE)
+	new_material.set_shader_parameter("stone_luminance", STONE_LUMINANCE)
+	new_material.set_shader_parameter("hard_stone_luminance", HARD_STONE_LUMINANCE)
+	material = new_material
+	
 	add_to_group("Grids")
 	GlobalEvents.level_advance.connect(func(): draw_disabled = false)
 	GlobalEvents.level_complete.connect(func(): draw_disabled = true)

@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhsu7qmlg2vtq"]
+
+[ext_resource type="Shader" uid="uid://b5r4kbfvr0tje" path="res://objects/grid/grid.gdshader" id="1_gkhmu"]
+[ext_resource type="Texture2D" uid="uid://dg16gdjsklnfr" path="res://objects/grid/soft_dirt.png" id="2_p1kwp"]
+[ext_resource type="Texture2D" uid="uid://dauf36ecuj7iu" path="res://objects/grid/hard_dirt.png" id="3_av5ih"]
+[ext_resource type="Texture2D" uid="uid://4px0sy66ut51" path="res://objects/grid/hard_stone.png" id="4_nxo8v"]
+[ext_resource type="Texture2D" uid="uid://bmyqambnvbgw8" path="res://objects/grid/soft_stone.png" id="5_ghp42"]
+
+[resource]
+shader = ExtResource("1_gkhmu")
+shader_parameter/air_luminance = 0.0
+shader_parameter/dirt_luminance = 0.0
+shader_parameter/hard_dirt_luminance = 0.0
+shader_parameter/stone_luminance = 0.0
+shader_parameter/hard_stone_luminance = 0.0
+shader_parameter/dirt_texture = ExtResource("2_p1kwp")
+shader_parameter/hard_dirt_texture = ExtResource("3_av5ih")
+shader_parameter/stone_texture = ExtResource("5_ghp42")
+shader_parameter/hard_stone_texture = ExtResource("4_nxo8v")
