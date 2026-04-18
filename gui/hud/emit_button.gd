@@ -22,4 +22,5 @@ func _process(delta: float) -> void:
 func do_emit():
 	if last_pressed > cooldown:
 		GlobalEvents.emit_pressed.emit()
+		GlobalSounds.play("Emit")
 		last_pressed = 0.0
