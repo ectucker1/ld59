@@ -1,7 +1,6 @@
 class_name Laser
 extends Area2D
 
-@export
 var speed := 50.0
 
 var direction: Vector2
@@ -11,8 +10,12 @@ var target: Node2D = $Target
 
 var grid: Grid
 
+@export
+var color := 1
+
 func _ready() -> void:
 	grid = get_tree().get_nodes_in_group("Grids")[0]
+	area_entered.connect(_area_entered)
 
 func _physics_process(delta: float) -> void:
 	# Move forwards
@@ -30,6 +33,10 @@ func _physics_process(delta: float) -> void:
 			global_position = target.global_position
 			direction = direction.bounce(normal)
 			rotation = direction.angle()
+
+func _area_entered(area: Area2D):
+	if area is Laser and area.color != color:
+		received()
 
 func received():
 	set_deferred("monitorable", false)

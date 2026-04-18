@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://deo4qm7meeyj2" path="res://objects/emitter/emitter.tscn" id="2_6belp"]
 [ext_resource type="PackedScene" uid="uid://c2bhsy12ahlq0" path="res://objects/receiver/receiver.tscn" id="3_q43mb"]
 [ext_resource type="PackedScene" uid="uid://cmqfb4kwadlsf" path="res://objects/bomb/bomb.tscn" id="4_6eehw"]
+[ext_resource type="PackedScene" uid="uid://ngo278ypngcy" path="res://objects/bomb_2/bomb_2.tscn" id="5_wg6eu"]
+[ext_resource type="PackedScene" uid="uid://bre0uertn3qh5" path="res://objects/emitter_2/emitter_2.tscn" id="6_n2omm"]
+[ext_resource type="PackedScene" uid="uid://b0ny8lvpk7b5y" path="res://objects/receiver_2/receiver_2.tscn" id="7_f62om"]
 
 [node name="Zoo" type="Node2D" unique_id=1280489625]
 
@@ -16,7 +19,16 @@ position = Vector2(960, 540)
 position = Vector2(660, 410)
 
 [node name="Receiver" parent="." unique_id=296584156 instance=ExtResource("3_q43mb")]
-position = Vector2(519, 181)
+position = Vector2(478, 414)
 
 [node name="Bomb" parent="." unique_id=496661616 instance=ExtResource("4_6eehw")]
 position = Vector2(876, 400)
+
+[node name="Bomb2" parent="." unique_id=1580120395 instance=ExtResource("5_wg6eu")]
+position = Vector2(1846, 80)
+
+[node name="Emitter2" parent="." unique_id=1261804180 instance=ExtResource("6_n2omm")]
+position = Vector2(1693, 83)
+
+[node name="Receiver2" parent="." unique_id=1670915810 instance=ExtResource("7_f62om")]
+position = Vector2(1703, 277)

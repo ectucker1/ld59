@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bdlhbtp86nup8"]
+
+[ext_resource type="Script" uid="uid://ibqkpi8c182n" path="res://objects/laser/laser.gd" id="1_1qldh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db4gc"]
+size = Vector2(24, 10)
+
+[node name="Laser" type="Area2D" unique_id=66565493]
+script = ExtResource("1_1qldh")
+color = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2012907211]
+position = Vector2(0, 2)
+scale = Vector2(4, 4)
+color = Color(0.93, 0.03720002, 0.03720002, 1)
+polygon = PackedVector2Array(0, -1, 5, -1, 5, -2, 6, -0.5, 5, 1, 5, 0, 0, 0)
+
+[node name="Target" type="Marker2D" parent="." unique_id=1909039276]
+position = Vector2(24, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897066300]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_db4gc")
