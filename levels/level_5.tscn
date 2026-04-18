@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c35nxwue0q4ml"]
+
+[ext_resource type="PackedScene" uid="uid://ctcqty5xh5t3p" path="res://objects/grid/grid.tscn" id="1_g5mgy"]
+[ext_resource type="Texture2D" uid="uid://baedfc0xxnth5" path="res://levels/level_5.png" id="2_g5mgy"]
+[ext_resource type="PackedScene" uid="uid://deo4qm7meeyj2" path="res://objects/emitter/emitter.tscn" id="3_ldpug"]
+[ext_resource type="PackedScene" uid="uid://c2bhsy12ahlq0" path="res://objects/receiver/receiver.tscn" id="4_8vr3t"]
+[ext_resource type="PackedScene" uid="uid://bre0uertn3qh5" path="res://objects/emitter_2/emitter_2.tscn" id="5_a58qw"]
+[ext_resource type="PackedScene" uid="uid://b0ny8lvpk7b5y" path="res://objects/receiver_2/receiver_2.tscn" id="6_ij65d"]
+[ext_resource type="PackedScene" uid="uid://cmqfb4kwadlsf" path="res://objects/bomb/bomb.tscn" id="7_gci8k"]
+[ext_resource type="PackedScene" uid="uid://ngo278ypngcy" path="res://objects/bomb_2/bomb_2.tscn" id="8_v5ho1"]
+
+[node name="Level0" type="Node2D" unique_id=1701362465]
+
+[node name="Grid" parent="." unique_id=1857638412 instance=ExtResource("1_g5mgy")]
+position = Vector2(3, -9)
+texture = ExtResource("2_g5mgy")
+max_dig = 140000
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1461427490]
+position = Vector2(827.185, 540)
+zoom = Vector2(1.2, 1.2)
+
+[node name="Emitter" parent="." unique_id=763716319 instance=ExtResource("3_ldpug")]
+position = Vector2(321, 333)
+
+[node name="Receiver" parent="." unique_id=296584156 instance=ExtResource("4_8vr3t")]
+position = Vector2(556, 312)
+
+[node name="Receiver" parent="Receiver" unique_id=695984561 instance=ExtResource("4_8vr3t")]
+position = Vector2(-139, 508)
+
+[node name="Emitter2" parent="." unique_id=1427828556 instance=ExtResource("5_a58qw")]
+position = Vector2(605, 429)
+
+[node name="Bomb2" parent="." unique_id=746230097 instance=ExtResource("7_gci8k")]
+position = Vector2(1477, 428)
+
+[node name="Receiver2" parent="." unique_id=697195736 instance=ExtResource("6_ij65d")]
+position = Vector2(608, 703)
+
+[node name="Receiver5" parent="." unique_id=492012044 instance=ExtResource("6_ij65d")]
+position = Vector2(705, 643)
+
+[node name="Receiver3" parent="." unique_id=474701259 instance=ExtResource("6_ij65d")]
+position = Vector2(1137, 431)
+
+[node name="Receiver4" parent="." unique_id=790773173 instance=ExtResource("6_ij65d")]
+position = Vector2(415, 611)
+
+[node name="Bomb" parent="." unique_id=496661616 instance=ExtResource("8_v5ho1")]
+position = Vector2(934, 452)
