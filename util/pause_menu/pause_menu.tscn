@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://d122i3aho8gv3"]
+
+[ext_resource type="Script" uid="uid://dvt5rtb0gnccq" path="res://util/pause_menu/pause_menu.gd" id="1_8qw3a"]
+[ext_resource type="PackedScene" uid="uid://c60j8g1ejaogb" path="res://util/audio/volume_controller.tscn" id="2_5ll16"]
+
+[sub_resource type="Animation" id="2"]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Dimmer:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.5019608), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Dimmer:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="1"]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Dimmer:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.5019608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qikg4"]
+_data = {
+&"Hide": SubResource("2"),
+&"RESET": SubResource("3"),
+&"Show": SubResource("1")
+}
+
+[node name="PauseMenu" type="Node" unique_id=1929892129 node_paths=PackedStringArray("resume_button", "main_menu_button", "exit_button", "anim_player")]
+process_mode = 3
+script = ExtResource("1_8qw3a")
+resume_button = NodePath("CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout/Resume")
+main_menu_button = NodePath("CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout/MainMenu")
+exit_button = NodePath("CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout/Exit")
+anim_player = NodePath("CanvasLayer/PauseMenu/AnimationPlayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=51595221]
+layer = 100
+
+[node name="Dimmer" type="ColorRect" parent="CanvasLayer" unique_id=767328923]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer" unique_id=1102302386]
+process_mode = 2
+layout_mode = 3
+anchor_top = -1.0
+anchor_right = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseMenu" unique_id=1396890635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/PauseMenu/CenterContainer" unique_id=1356776600]
+layout_mode = 2
+
+[node name="CenterLayout" type="VBoxContainer" parent="CanvasLayer/PauseMenu/CenterContainer/Panel" unique_id=563053422]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout" unique_id=354585808]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout" unique_id=640647373]
+layout_mode = 2
+text = "Resume"
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout" unique_id=660057322]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Exit" type="Button" parent="CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout" unique_id=40948153]
+layout_mode = 2
+text = "Exit"
+
+[node name="Title2" type="Label" parent="CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout" unique_id=327896978]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="VolumeContainer" parent="CanvasLayer/PauseMenu/CenterContainer/Panel/CenterLayout" unique_id=401136011 instance=ExtResource("2_5ll16")]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PauseMenu" unique_id=369622468]
+libraries/ = SubResource("AnimationLibrary_qikg4")
