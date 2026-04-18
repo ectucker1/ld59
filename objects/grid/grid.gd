@@ -43,7 +43,10 @@ func draw_dig():
 	if not draw_disabled:
 		var position = InputUtil.get_global_mouse_position(self)
 		dig_circle(position, 20)
-		editable_texture.update(editable_image)
+		update_image()
+
+func update_image():
+	editable_texture.update(editable_image)
 
 # Get the luminance for the given GridMaterial
 func get_luminance(material: GridMaterial) -> float:

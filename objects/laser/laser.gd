@@ -25,10 +25,11 @@ func _physics_process(delta: float) -> void:
 	# Bounce when we hit stone
 	elif hit_material == Grid.GridMaterial.STONE or hit_material == Grid.GridMaterial.HARD_STONE:
 		var normal = grid.get_stone_normal_global(target.global_position)
-		DebugOverlay.draw_vector_from(target.global_position, normal * 50, Color.AQUA)
-		global_position = target.global_position
-		direction = direction.bounce(normal)
-		rotation = direction.angle()
+		if normal != Vector2.ZERO:
+			DebugOverlay.draw_vector_from(target.global_position, normal * 50, Color.AQUA)
+			global_position = target.global_position
+			direction = direction.bounce(normal)
+			rotation = direction.angle()
 
 func received():
 	set_deferred("monitorable", false)
