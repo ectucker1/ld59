@@ -14,7 +14,7 @@ texture = ExtResource("2_kx6l7")
 position = Vector2(960, 540)
 
 [node name="Emitter" parent="." unique_id=763716319 instance=ExtResource("3_btoec")]
-position = Vector2(456, 443)
+position = Vector2(475, 423)
 
 [node name="Receiver" parent="." unique_id=296584156 instance=ExtResource("4_gwceb")]
-position = Vector2(1126, 435)
+position = Vector2(1125, 423)
