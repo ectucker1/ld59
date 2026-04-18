@@ -5,17 +5,23 @@ var editable_image: Image
 var editable_texture: ImageTexture
 
 const AIR_COLOR = Color("FFFFFF")
+var AIR_LUMINANCE = AIR_COLOR.get_luminance()
 
 const DIRT_COLOR = Color("FF6A00")
+var DIRT_LUMINANCE = DIRT_COLOR.get_luminance()
 const HARD_DIRT_COLOR = Color("FF0000")
+var HARD_DIRT_LUMINANCE = HARD_DIRT_COLOR.get_luminance()
 
 const STONE_COLOR = Color("404040")
+var STONE_LUMINANCE = STONE_COLOR.get_luminance()
 const HARD_STONE_COLOR = Color("000000")
+var HARD_STONE_LUMINANCE = HARD_STONE_COLOR.get_luminance()
 
 enum GridMaterial { AIR, DIRT, HARD_DIRT, STONE, HARD_STONE }
 
 func _ready() -> void:
 	editable_image = texture.get_image()
+	editable_image.convert(Image.FORMAT_L8)
 	editable_texture = ImageTexture.create_from_image(editable_image)
 	texture = editable_texture
 	add_to_group("Grids")
@@ -34,20 +40,20 @@ func draw_dig():
 	dig_circle(position, 20)
 	editable_texture.update(editable_image)
 
-# Get the color for the given GridMaterial
-func get_color(material: GridMaterial) -> Color:
+# Get the luminance for the given GridMaterial
+func get_luminance(material: GridMaterial) -> float:
 	match material:
 		GridMaterial.AIR:
-			return AIR_COLOR
+			return AIR_LUMINANCE
 		GridMaterial.DIRT:
-			return DIRT_COLOR
+			return DIRT_LUMINANCE
 		GridMaterial.HARD_DIRT:
-			return HARD_DIRT_COLOR
+			return HARD_DIRT_LUMINANCE
 		GridMaterial.STONE:
-			return STONE_COLOR
+			return STONE_LUMINANCE
 		GridMaterial.HARD_STONE:
-			return HARD_STONE_COLOR
-	return AIR_COLOR
+			return HARD_STONE_LUMINANCE
+	return AIR_LUMINANCE
 
 # Convert a position from global space to the image coordinates
 func to_local_int(global_point: Vector2) -> Vector2i:
@@ -61,9 +67,11 @@ func get_grid_material_global(point: Vector2) -> GridMaterial:
 
 # Get the grid material at the given local coordinate
 func get_grid_material_local(point: Vector2i) -> GridMaterial:
+	if point.x < 0 or point.y < 0 or point.x >= editable_image.get_width() or point.y >= editable_image.get_height():
+		return GridMaterial.AIR
 	var pixel = editable_image.get_pixelv(point)
 	for material in GridMaterial.values():
-		if get_color(material).is_equal_approx(pixel):
+		if abs(get_luminance(material) - pixel.r) < 0.01:
 			return material
 	return GridMaterial.AIR
 
@@ -89,7 +97,8 @@ func get_stone_normal_local(center: Vector2i) -> Vector2:
 func dig_at(point: Vector2i) -> bool:
 	var target_material = get_grid_material_local(point)
 	if target_material == GridMaterial.DIRT or target_material == GridMaterial.STONE:
-		editable_image.set_pixelv(point, get_color(GridMaterial.AIR))
+		var luminance = get_luminance(GridMaterial.AIR)
+		editable_image.set_pixelv(point, Color(luminance, luminance, luminance))
 	return false
 
 # Remove any diggable material at ever point in a circle with the given center and radius
