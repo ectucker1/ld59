@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://didtqdao6mjae"]
+
+[node name="Spokes" type="Node2D" unique_id=365421099]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=42361033]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(0, 1000)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1422769360]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(0, -1000)
+
+[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=1303508979]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(1000, 0)
+
+[node name="RayCast2D4" type="RayCast2D" parent="." unique_id=624123627]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(-1000, 0)
+
+[node name="RayCast2D5" type="RayCast2D" parent="." unique_id=151554496]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(1000, 1000)
+
+[node name="RayCast2D6" type="RayCast2D" parent="." unique_id=1046905646]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(1000, -1000)
+
+[node name="RayCast2D7" type="RayCast2D" parent="." unique_id=1753165684]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(-1000, 1000)
+
+[node name="RayCast2D8" type="RayCast2D" parent="." unique_id=102699753]
+modulate = Color(1, 0.65, 0, 1)
+enabled = false
+target_position = Vector2(-1000, -1000)

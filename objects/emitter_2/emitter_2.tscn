@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bre0uertn3qh5"]
 
 [ext_resource type="Script" uid="uid://b6tag1i7ohmlw" path="res://objects/emitter/emitter.gd" id="1_r6tf5"]
+[ext_resource type="PackedScene" uid="uid://didtqdao6mjae" path="res://objects/emitter/spokes.tscn" id="2_yl2ql"]
 
 [node name="Emitter" type="Node2D" unique_id=763716319]
 script = ExtResource("1_r6tf5")
@@ -10,3 +11,5 @@ color = 2
 scale = Vector2(4, 4)
 color = Color(0.97, 0.16166669, 0, 1)
 polygon = PackedVector2Array(-7, 5, -8, -6, -3, -12, 5, -12, 9, -8, 9, 6, 4, 11, -4, 11)
+
+[node name="Spokes" parent="." unique_id=365421099 instance=ExtResource("2_yl2ql")]
