@@ -2,6 +2,8 @@ class_name Grid
 extends Sprite2D
 
 var dig_radius = 20
+
+@export
 var max_dig = 300_000
 
 var editable_image: Image
@@ -22,6 +24,7 @@ var HARD_STONE_LUMINANCE = HARD_STONE_COLOR.get_luminance()
 
 enum GridMaterial { AIR, DIRT, HARD_DIRT, STONE, HARD_STONE }
 
+@onready
 var dig_meter_remaining = max_dig
 var draw_disabled = false
 
