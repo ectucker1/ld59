@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://0y4471jqtukh"]
+
+[ext_resource type="PackedScene" uid="uid://ctcqty5xh5t3p" path="res://objects/grid/grid.tscn" id="1_kx6l7"]
+[ext_resource type="Texture2D" uid="uid://cck0m5btw4csq" path="res://levels/level_1.png" id="2_kx6l7"]
+[ext_resource type="PackedScene" uid="uid://deo4qm7meeyj2" path="res://objects/emitter/emitter.tscn" id="3_btoec"]
+[ext_resource type="PackedScene" uid="uid://c2bhsy12ahlq0" path="res://objects/receiver/receiver.tscn" id="4_gwceb"]
+
+[node name="Level0" type="Node2D" unique_id=1701362465]
+
+[node name="Grid" parent="." unique_id=1857638412 instance=ExtResource("1_kx6l7")]
+texture = ExtResource("2_kx6l7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1461427490]
+position = Vector2(960, 540)
+
+[node name="Emitter" parent="." unique_id=763716319 instance=ExtResource("3_btoec")]
+position = Vector2(456, 443)
+
+[node name="Receiver" parent="." unique_id=296584156 instance=ExtResource("4_gwceb")]
+position = Vector2(1126, 435)
