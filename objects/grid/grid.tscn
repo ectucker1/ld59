@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://c0tojufut1if3" path="res://objects/grid/grid.gd" id="2_pyk5v"]
 
 [node name="Grid" type="Sprite2D" unique_id=1857638412]
+texture_filter = 1
+texture_repeat = 3
 texture = ExtResource("1_1a5or")
 centered = false
 script = ExtResource("2_pyk5v")
