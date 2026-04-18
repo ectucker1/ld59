@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2bhsy12ahlq0"]
 
 [ext_resource type="Script" uid="uid://visjhayu3a83" path="res://objects/receiver/receiver.gd" id="1_sg7po"]
+[ext_resource type="Texture2D" uid="uid://dcxx5m4rfs3ji" path="res://objects/receiver/bat_off.png" id="2_7q1k1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_584qb"]
 radius = 33.0
@@ -9,8 +10,13 @@ radius = 33.0
 script = ExtResource("1_sg7po")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1446561657]
+visible = false
 color = Color(0.09803922, 0.23921569, 0.99607843, 1)
 polygon = PackedVector2Array(-22, 13, -22, -24, 24, -23, 22, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1837250648]
 shape = SubResource("CircleShape2D_584qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=222380398]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7q1k1")

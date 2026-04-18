@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmqfb4kwadlsf"]
 
 [ext_resource type="Script" uid="uid://baxltymd1b7fl" path="res://objects/bomb/bomb.gd" id="1_gfncr"]
+[ext_resource type="Texture2D" uid="uid://cg8lhwn08el4f" path="res://objects/bomb/bomb_1.png" id="2_ivd5y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jawcn"]
 radius = 24.083189
@@ -9,8 +10,14 @@ radius = 24.083189
 script = ExtResource("1_gfncr")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=939884366]
+visible = false
 color = Color(0, 0.5666666, 1, 1)
 polygon = PackedVector2Array(-16, -4, -1, 23, 27, 13, 17, -8, 3, -15, 4, -32, 14, -36, 6, -46, -5, -37, -5, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1569719974]
 shape = SubResource("CircleShape2D_jawcn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2018309033]
+position = Vector2(-1, -8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ivd5y")
