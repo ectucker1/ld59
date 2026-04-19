@@ -9,52 +9,52 @@
 [node name="Hud" type="CanvasLayer" unique_id=1636908717]
 layer = 5
 
-[node name="Control" type="Control" parent="." unique_id=133835144]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1121271246]
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
 
-[node name="EmitButton" type="Button" parent="Control" unique_id=1728351920]
+[node name="Control" type="Control" parent="CenterContainer" unique_id=1278833]
+custom_minimum_size = Vector2(1700, 900)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/Control" unique_id=1379703090]
+custom_minimum_size = Vector2(60, 600)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 600.0
+grow_horizontal = 0
+value = 50.0
+fill_mode = 3
+script = ExtResource("3_uffwq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control" unique_id=1243917611]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -83.0
+offset_left = -240.0
+offset_top = -174.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Emit!"
+
+[node name="EmitButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=1728351920]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Transmit"
 script = ExtResource("1_4w87a")
 
-[node name="ResetButton" type="Button" parent="Control" unique_id=1127724521]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -83.0
-offset_right = 160.0
-grow_vertical = 0
+[node name="ResetButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=1127724521]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 text = "Reset"
 script = ExtResource("2_rllpj")
-
-[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=1379703090]
-custom_minimum_size = Vector2(60, 600)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -4.0
-offset_bottom = 71.0
-grow_horizontal = 0
-value = 50.0
-fill_mode = 3
-script = ExtResource("3_uffwq")
 
 [node name="NextLevel" type="Control" parent="." unique_id=649207472]
 visible = false

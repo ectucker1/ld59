@@ -87,4 +87,4 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0.22, 0.22, 0.22, 1)
+environment/defaults/default_clear_color=Color(0.16744001, 0.11270001, 0.23, 1)
