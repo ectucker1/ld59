@@ -47,13 +47,13 @@ grow_vertical = 0
 [node name="EmitButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=1728351920]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Transmit"
+text = "Transmit (T)"
 script = ExtResource("1_4w87a")
 
 [node name="ResetButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=1127724521]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Reset"
+text = "Reset (R)"
 script = ExtResource("2_rllpj")
 
 [node name="NextLevel" type="Control" parent="." unique_id=649207472]
