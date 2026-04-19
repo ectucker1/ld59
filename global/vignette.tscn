@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://myqj3p5v5ejm"]
+
+[ext_resource type="Material" uid="uid://befv5e423fhq6" path="res://global/vignette_material.tres" id="1_f67j8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f67j8"]
+
+[node name="Vignette" type="CanvasLayer" unique_id=1505892510]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2013857017]
+material = ExtResource("1_f67j8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_f67j8")

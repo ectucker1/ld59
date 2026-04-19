@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://4y7b3wq0n8ob" path="res://gui/hud/win_check_dialog.gd" id="3_y7mac"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1636908717]
+layer = 5
 
 [node name="Control" type="Control" parent="." unique_id=133835144]
 layout_mode = 3

@@ -29,6 +29,7 @@ TransitionLayer="*res://util/transition/transition_layer.tscn"
 Hud="*uid://3u8rnfw5pvy1"
 GlobalEvents="*uid://dc75rea6dbipq"
 LevelSequence="*uid://buelh5p8cuxwq"
+Vignette="*uid://myqj3p5v5ejm"
 
 [display]
 
