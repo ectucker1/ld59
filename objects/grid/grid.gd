@@ -31,7 +31,7 @@ var draw_disabled = false
 func _ready() -> void:
 	var source_image := texture.get_image()
 	source_image.convert(Image.FORMAT_L8)
-	var expand_padding = 1000
+	var expand_padding = 800
 	editable_image = Image.create(source_image.get_width() + expand_padding, source_image.get_height() + expand_padding, false, Image.FORMAT_L8)
 	editable_image.fill(Color(HARD_DIRT_LUMINANCE, HARD_DIRT_LUMINANCE, HARD_DIRT_LUMINANCE))
 	editable_image.blit_rect(source_image, Rect2i(Vector2i.ZERO, source_image.get_size()), Vector2i(expand_padding / 2, expand_padding / 2))
