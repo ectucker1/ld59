@@ -29,9 +29,14 @@ var dig_meter_remaining = max_dig
 var draw_disabled = false
 
 func _ready() -> void:
-	editable_image = texture.get_image()
-	editable_image.convert(Image.FORMAT_L8)
+	var source_image := texture.get_image()
+	source_image.convert(Image.FORMAT_L8)
+	var expand_padding = 1000
+	editable_image = Image.create(source_image.get_width() + expand_padding, source_image.get_height() + expand_padding, false, Image.FORMAT_L8)
+	editable_image.fill(Color(HARD_DIRT_LUMINANCE, HARD_DIRT_LUMINANCE, HARD_DIRT_LUMINANCE))
+	editable_image.blit_rect(source_image, Rect2i(Vector2i.ZERO, source_image.get_size()), Vector2i(expand_padding / 2, expand_padding / 2))
 	editable_texture = ImageTexture.create_from_image(editable_image)
+	position -= Vector2(expand_padding / 2, expand_padding / 2)
 	texture = editable_texture
 	
 	var new_material: ShaderMaterial = load("res://objects/grid/grid_material.tres")
