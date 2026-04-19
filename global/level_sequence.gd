@@ -1,8 +1,13 @@
 extends Node
 
 static var levels = [
-	"res://levels/zoo.tscn",
-	"res://levels/zoo.tscn",
+	"res://levels/level_0.tscn",
+	"res://levels/level_1.tscn",
+	"res://levels/level_2.tscn",
+	"res://levels/level_3.tscn",
+	"res://levels/level_4.tscn",
+	"res://levels/level_5.tscn",
+	"res://levels/level_6.tscn",
 ]
 
 const win = "res://gui/game_win/game_win.tscn"
