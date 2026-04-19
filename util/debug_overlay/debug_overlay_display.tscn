@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkvyunbav70ve" path="res://util/debug_overlay/debug_text_overlay.tscn" id="2_amh7f"]
 
 [node name="DebugOverlay" type="CanvasLayer" unique_id=1537890257]
+visible = false
 
 [node name="Split" type="VSplitContainer" parent="." unique_id=292540019]
 anchors_preset = 15
